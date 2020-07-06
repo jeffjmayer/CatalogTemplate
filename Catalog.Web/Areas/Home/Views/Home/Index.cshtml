@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row row-first box-noborder" style="padding-top: 30px;">
+    <div class="span5">
+        <div style="padding:0px 0 0 10px;">
+            <div id="artCarousel" class="carousel slide">
+                <ol class="carousel-indicators">
+                  <li data-target="#artCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#artCarousel" data-slide-to="1" class=""></li>
+                  <li data-target="#artCarousel" data-slide-to="2" class=""></li>
+                  <li data-target="#artCarousel" data-slide-to="3" class=""></li>
+                </ol>
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    <div class="active item">
+                        <ul class="thumbnails">
+                            <li><a href="/products/9" class="thumbnail">
+                                <img src="/images/2.jpg" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <ul class="thumbnails">
+                            <li><a href="/products/17" class="thumbnail">
+                                <img id="lazy1" data-lazy-load-src="/images/1.jpg" src="" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <ul class="thumbnails">
+                            <li><a href="/products/1" class="thumbnail">
+                                <img id="lazy2"  data-lazy-load-src="/images/3.jpg" src="" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <ul class="thumbnails">
+                            <li><a href="/products/8" class="thumbnail">
+                                <img id="lazy3"  data-lazy-load-src="/images/4.jpg" src="" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="span7">
+        <section>
+        <div style="margin: 0px 35px 40px 0; padding: 10px 35px 20px 20px; background: #f5f5f5;">
+            <hgroup>
+            <h3>Welcome</h3>
+            </hgroup>
+            <article>
+            <p>
+             Welcome to the ITA Catalog.  This catalog is a stylish online store that gives  
+             participants a place to spend thier points.
+            </p>
+            <p>
+                ITA Catalog is a modern web app store. 
+             </p>
+           <br />
+           </article>
+        </div>
+        </section>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $("#artCarousel").carousel({ interval: 4000 });
+
+            // ** lazy load pattern
+
+            setTimeout(function () {
+                $('img[id^=lazy]').each(function () {
+                    $(this).attr('src', $(this).data('lazy-load-src'));
+                });
+            }, 1500);
+        });
+    </script>
+}
